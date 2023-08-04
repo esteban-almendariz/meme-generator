@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  margin: 0;
+  width: 100%;
+  background-color: #242424;
+}
+
+
+.header {
+  display: flex;
+  height: 85px;
+  margin: 0;
+  margin-bottom: 2em;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  align-items: center;
+}
+
+.header--title {
+  font-size: 1.55rem;
+  margin-right: auto;
+  margin-left: 20px;
+}
+
+.header--project {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+
+}
+
+.input-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.input-text {
+  height: 3em;
+  width: 48%;
+}
+
+button {
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  font-size: 2rem;
+  padding: .75em;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
