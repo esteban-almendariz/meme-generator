@@ -1,4 +1,4 @@
-
+import './Meme.css'
 
 const Meme = () => {
     return (
@@ -9,6 +9,9 @@ const Meme = () => {
                     <input type="text" className="input-text"></input>
                 </div>
                 <button>Get a new meme image</button>
+                <div className="display-image">
+
+                </div>
             </form>
         </>
     )
