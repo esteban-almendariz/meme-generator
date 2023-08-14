@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Meme.css'
 
 const Meme = () => {
     const [formData, setFormData] = useState({
         topMessage: '', bottomMessage:''
     })
+
+    const [urlData, setUrlData] = useState([])
 
     const changeHandler = (event) => {
         console.log(event.target.value)
@@ -21,9 +23,26 @@ const Meme = () => {
         console.log(formData.bottomMessage)
     }
 
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const res = await fetch("https://swapi.dev/api/people/1")
+    //         const data = await res.json()
+            
+    //         console.log(data)
+    //     }
+    //     fetchData()
+    // }, [])
+    const fetchData = async() => {
+        const res = await fetch("https://swapi.dev/api/people/1")
+        const data = await res.json()
+        return data
+    }
+
+
+
     return (
         <>
-            <form className="form">
+            <form className="form" onSubmit={clickHandle}>
                 <div className="input-form">
                     <input 
                         type="text" 
@@ -42,9 +61,9 @@ const Meme = () => {
                         value={formData.bottomMessage}
                     />
                 </div>
-                <button onClick={clickHandle}>Get a new meme image</button>
+                <button>Get a new meme image</button>
                 <div className="display-image">
-
+                    <img src={urlData.url}/>
                 </div>
             </form>
         </>
