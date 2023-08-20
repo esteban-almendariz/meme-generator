@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import './Meme.css'
 
 const Meme = () => {
     const [formData, setFormData] = useState({
-        topMessage: '', bottomMessage:''
+        topMessage: '', 
+        bottomMessage:'',
+        url: 'http://i.imgflip.com/1bij.jpg'
     })
 
     const [urlData, setUrlData] = useState([])
@@ -17,32 +18,35 @@ const Meme = () => {
                  }})
     } 
 
-    const clickHandle = (event) => {
+    const newMeme = (event) => {
+        const randomNumber = Math.floor(Math.random() * urlData.length)
         event.preventDefault()
+        setFormData(prevData => ({
+            ...prevData,
+            url: urlData[randomNumber].url
+        }))
+
         console.log(formData.topMessage)
         console.log(formData.bottomMessage)
     }
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const res = await fetch("https://swapi.dev/api/people/1")
-    //         const data = await res.json()
-            
-    //         console.log(data)
-    //     }
-    //     fetchData()
-    // }, [])
-    const fetchData = async() => {
-        const res = await fetch("https://swapi.dev/api/people/1")
-        const data = await res.json()
-        return data
-    }
+    // data.data.memes[0].url
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setUrlData(data.data.memes)
+        }
+        fetchData()
+    }, [])
+
 
 
 
     return (
         <>
-            <form className="form" onSubmit={clickHandle}>
+            <form className="form" onSubmit={newMeme}>
                 <div className="input-form">
                     <input 
                         type="text" 
@@ -62,8 +66,8 @@ const Meme = () => {
                     />
                 </div>
                 <button>Get a new meme image</button>
-                <div className="display-image">
-                    <img src={urlData.url}/>
+                <div className='dislay-image'>
+                    <img src={formData.url}/>
                 </div>
             </form>
         </>
