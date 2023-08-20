@@ -37,7 +37,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 70%;
-
 }
 
 .input-form {
@@ -58,10 +57,10 @@ button {
   padding: .75em;
 }
 
-.display-image {
-  
-  text-align: center;
-  background-color: white;
+img {
+  width: 50%;
+  margin: auto;
+  display: block;
 }
 
 
