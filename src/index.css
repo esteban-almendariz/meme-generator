@@ -48,6 +48,7 @@ body {
 .input-text {
   height: 3em;
   width: 48%;
+  font-size: 1rem;
 }
 
 button {
@@ -57,10 +58,34 @@ button {
   padding: .75em;
 }
 
+.img-container {
+  position: relative;
+}
+.top-text {
+  color: purple;
+  font-size: 2rem;
+  position: absolute;
+  top: 25px;
+  right: 480px;
+  background-color: white;
+  font-weight: bold;
+}
+
+.bottom-text {
+  color: purple;
+  font-size: 2rem;
+  position: absolute;
+  top: 350px;
+  right: 480px;
+  background-color: white;
+  font-weight: bold;
+}
+
 img {
   width: 50%;
   margin: auto;
   display: block;
+  height: 500px;
 }
 
 

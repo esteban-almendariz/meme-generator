@@ -66,8 +66,12 @@ const Meme = () => {
                     />
                 </div>
                 <button>Get a new meme image</button>
-                <div className='dislay-image'>
-                    <img src={formData.url}/>
+                <div className='img-container'>
+                    <p className='top-text'>{formData.topMessage}</p>
+                    <div className='dislay-image'>
+                        <img src={formData.url}/>
+                    </div>
+                    <p className='bottom-text'>{formData.bottomMessage}</p>
                 </div>
             </form>
         </>
